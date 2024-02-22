@@ -1,0 +1,46 @@
+import datetime
+
+class TaskManager:
+    def __init__(self):
+        self.tasks = {}
+
+    def add_task(self, name, division, task_name, deadline):
+        if division not in self.tasks:
+            self.tasks[division] = []
+        self.tasks[division].append({'name': name, 'task_name': task_name, 'deadline': deadline})
+
+    def display_tasks(self):
+        for division, tasks in self.tasks.items():
+            print(f"Division: {division}")
+            for task in tasks:
+                print(f"Name: {task['name']}, Task: {task['task_name']}, Deadline: {task['deadline']}")
+
+def main():
+    task_manager = TaskManager()
+
+    while True:
+        print("\nTask Manager Menu:")
+        print("1. Add Task")
+        print("2. Display Tasks")
+        print("3. Exit")
+
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            name = input("Enter your name: ")
+            division = input("Enter your division: ")
+            task_name = input("Enter task name: ")
+            deadline_str = input("Enter deadline (YYYY-MM-DD HH:MM): ")
+            deadline = datetime.datetipme.strptime(deadline_str, "%Y-%m-%d %H:%M")
+            task_manager.add_task(name, division, task_name, deadline)
+            print("Task added successfully!")
+        elif choice == '2':
+            task_manager.display_tasks()
+        elif choice == '3':
+            print("Exiting Task Manager...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
