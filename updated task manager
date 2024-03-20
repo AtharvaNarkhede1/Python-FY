@@ -5,14 +5,14 @@ from datetime import datetime
 
 
 class Task:
-    def _init_(self, name, priority, due_date):
+    def __init__(self, name, priority, due_date):
         self.name = name
         self.priority = priority
         self.due_date = due_date
 
 
 class TaskManagerApp:
-    def _init_(self, root):
+    def __init__(self, root):
         self.root = root
         self.root.title("Task Manager")
 
@@ -93,7 +93,7 @@ class TaskManagerApp:
         self.due_date_var.set("")
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     root = tk.Tk()
     app = TaskManagerApp(root)
     root.mainloop()
